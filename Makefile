@@ -6,7 +6,7 @@
 #    By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 17:25:35 by meskelin          #+#    #+#              #
-#    Updated: 2023/04/21 15:13:24 by meskelin         ###   ########.fr        #
+#    Updated: 2023/05/05 11:59:51 by meskelin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,24 +16,25 @@ LIBFT_PATH = ./libft
 BUILD_FLAGS = -Wall -Wextra -Werror
 
 COMMON_SRC = exit \
-			file
+			file \
+			hook
 
-MAP_SRC = vector \
+MAP_SRC = pixel \
 		dimension \
-		map_data \
+		map \
 		map_parse \
-		img_data \
+		img \
 		mlx_win \
-		put_pixel
+		draw
 
 LIST_SRC = lstnew \
 		lstlast \
 		lstadd \
 		lstclear \
 		lstsize \
-		lstadd_to_vectors
+		lstadd_to_pixels
 
-SRC = run_fdf
+SRC = fdf
 
 COMMONSRCPRE = $(addprefix ./src/common/, $(COMMON_SRC))
 COMMONSRCSUFF = $(addsuffix .c, $(COMMONSRCPRE))

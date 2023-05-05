@@ -6,14 +6,14 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:45:28 by meskelin          #+#    #+#             */
-/*   Updated: 2023/04/24 18:11:20 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/04/28 13:00:53 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 #include <stdio.h>
 
-t_mlx	*init_mlx_win()
+t_mlx	*init_mlx_win(void)
 {
 	t_mlx	*new;
 

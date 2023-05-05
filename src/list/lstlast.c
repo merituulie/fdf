@@ -6,15 +6,15 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:32:54 by meskelin          #+#    #+#             */
-/*   Updated: 2023/04/21 16:48:18 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:49:24 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-t_vector	*lstlast(t_vector **lst)
+t_pixel	*lstlast(t_pixel **lst)
 {
-	t_vector	*ptr;
+	t_pixel	*ptr;
 
 	ptr = *lst;
 	if (!ptr)

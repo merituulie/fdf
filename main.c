@@ -6,7 +6,7 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:06:02 by meskelin          #+#    #+#             */
-/*   Updated: 2023/04/21 15:53:38 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/04/28 13:05:47 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	main(int argc, char *argv[])
 		exit_failure();
 	if (argv[1][0] == '\0')
 		exit_success(NULL);
-	run_fdf(argv[1]);
+	run(argv[1]);
 	return (0);
 }

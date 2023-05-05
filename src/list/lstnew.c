@@ -6,17 +6,17 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:09:31 by meskelin          #+#    #+#             */
-/*   Updated: 2023/04/21 15:35:01 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:49:24 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-t_vector	*lstnew(int x, int y, int z)
+t_pixel	*lstnew(int x, int y, int z)
 {
-	t_vector	*new;
+	t_pixel	*new;
 
-	new = (t_vector *)ft_calloc(1, sizeof(*new));
+	new = (t_pixel *)ft_calloc(1, sizeof(*new));
 	if (!new)
 		return (NULL);
 	new->x = x;

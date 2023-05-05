@@ -6,23 +6,23 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:23:05 by meskelin          #+#    #+#             */
-/*   Updated: 2023/04/21 15:10:55 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:51:31 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-int	lstsize(t_vector *vector)
+int	lstsize(t_pixel *pixel)
 {
 	int	count;
 
 	count = 0;
-	if (!vector)
+	if (!pixel)
 		return (count);
-	while (vector)
+	while (pixel)
 	{
 		count++;
-		vector = vector->next;
+		pixel = pixel->next;
 	}
 	return (count);
 }
