@@ -6,7 +6,7 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:30:24 by meskelin          #+#    #+#             */
-/*   Updated: 2023/05/05 13:59:40 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:31:45 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	handle_line(char **line_data, t_pixel **pixels, int y)
 	int		x;
 	char	**first;
 
-	x = WIN_WIDTH / 4;
+	x = 0;
 	first = line_data;
 	while (*line_data)
 	{
@@ -38,7 +38,7 @@ static void	handle_line(char **line_data, t_pixel **pixels, int y)
 		*pixels = lstadd_to_pixels(pixels, x, y, z);
 		free(*line_data);
 		line_data++;
-		x += SCALE;
+		x++;
 	}
 	free(first);
 }
@@ -61,23 +61,23 @@ static void	handle_row(char *line, t_dimensions **dim, t_pixel **pixels, int y)
 // 	int			counter;
 
 // 	printf("Map width %i\n", dim->width);
-// 	printf("Map length %i\n", dim->pixel);
+// 	printf("Map height %i\n", dim->height);
 // 	printf("Map read:\n");
 // 	temp = *pixels;
 // 	counter = dim->width;
-// 	while (dim->pixel >= 1)
+// 	while (dim->height >= 1)
 // 	{
 // 		while (dim->width >= 1)
 // 		{
 // 			if (temp->z == 0)
 // 				printf("0");
-// 			printf("%i", temp->z);
+// 			printf("%i ", temp->z);
 // 			temp = temp->next;
 // 			dim->width--;
 // 		}
 // 		printf("\n");
 // 		dim->width = counter;
-// 		dim->pixel--;
+// 		dim->height--;
 // 	}
 // }
 
@@ -90,7 +90,7 @@ t_map_data	*parse_map(int fd)
 	int				y;
 
 	pixels = NULL;
-	y = WIN_HEIGHT / 4;
+	y = 0;
 	dim = new_dimensions(0, 0);
 	while (fd != 0)
 	{
@@ -98,10 +98,11 @@ t_map_data	*parse_map(int fd)
 		if (!line)
 			break ;
 		handle_row(line, &dim, &pixels, y);
-		y += (SCALE / 2);
+		y++;
 		free(line);
 	}
 	dim->height = y;
+	// print_parsed(&pixels, dim);
 	map = new_map_data(&pixels, &dim);
 	return (map);
 }
