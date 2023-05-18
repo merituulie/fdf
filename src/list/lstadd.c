@@ -6,12 +6,11 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:17:11 by meskelin          #+#    #+#             */
-/*   Updated: 2023/04/28 12:51:31 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:19:36 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-#include <stdio.h>
 
 void	lstadd(t_pixel **pixels, t_pixel *new)
 {

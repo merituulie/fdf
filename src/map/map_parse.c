@@ -6,13 +6,12 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:30:24 by meskelin          #+#    #+#             */
-/*   Updated: 2023/05/08 12:31:45 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:24:24 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 #include "../../libft/libft.h"
-#include <stdio.h>
 
 static int	count_width(char **line)
 {
@@ -26,9 +25,9 @@ static int	count_width(char **line)
 
 static void	handle_line(char **line_data, t_pixel **pixels, int y)
 {
-	int		z;
-	int		x;
-	char	**first;
+	int			z;
+	int			x;
+	char		**first;
 
 	x = 0;
 	first = line_data;
@@ -55,32 +54,6 @@ static void	handle_row(char *line, t_dimensions **dim, t_pixel **pixels, int y)
 	handle_line(line_data, pixels, y);
 }
 
-// static void	print_parsed(t_pixel **pixels, t_dimensions *dim)
-// {
-// 	t_pixel	*temp;
-// 	int			counter;
-
-// 	printf("Map width %i\n", dim->width);
-// 	printf("Map height %i\n", dim->height);
-// 	printf("Map read:\n");
-// 	temp = *pixels;
-// 	counter = dim->width;
-// 	while (dim->height >= 1)
-// 	{
-// 		while (dim->width >= 1)
-// 		{
-// 			if (temp->z == 0)
-// 				printf("0");
-// 			printf("%i ", temp->z);
-// 			temp = temp->next;
-// 			dim->width--;
-// 		}
-// 		printf("\n");
-// 		dim->width = counter;
-// 		dim->height--;
-// 	}
-// }
-
 t_map_data	*parse_map(int fd)
 {
 	char			*line;
@@ -102,7 +75,6 @@ t_map_data	*parse_map(int fd)
 		free(line);
 	}
 	dim->height = y;
-	// print_parsed(&pixels, dim);
 	map = new_map_data(&pixels, &dim);
 	return (map);
 }

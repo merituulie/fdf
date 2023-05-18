@@ -6,7 +6,7 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:52:20 by meskelin          #+#    #+#             */
-/*   Updated: 2023/05/05 12:59:53 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:52:11 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,23 @@
 # endif
 
 # ifndef SCALE
-#  define SCALE 50
+#  define SCALE 75
 # endif
 
-# ifndef OFFSET
-#  define OFFSET 5
+# ifndef OFFSET_X
+#  define OFFSET_X WIN_WIDTH / 2
+# endif
+
+# ifndef OFFSET_Y
+#  define OFFSET_Y WIN_HEIGHT / 4
+# endif
+
+# ifndef COLOR
+#  define COLOR 0x00FFFFFF
+# endif
+
+# ifndef ALTITUDE
+#  define ALTITUDE 10
 # endif
 
 typedef struct s_pixel
@@ -50,6 +62,12 @@ typedef struct s_pixel
 	int				z;
 	struct s_pixel	*next;
 }	t_pixel;
+
+typedef struct s_coord
+{
+	double	x;
+	double	y;
+}	t_coord;
 
 typedef struct s_dimensions
 {
@@ -61,6 +79,9 @@ typedef struct s_map_data
 {
 	t_dimensions	*dimensions;
 	t_pixel			*pixels;
+	t_coord			**transform_map;
+	int				scale_x;
+	int				scale_y;
 }	t_map_data;
 
 typedef struct s_img_data
@@ -107,9 +128,10 @@ t_pixel			*new_pixel(int x, int z, int y);
 t_dimensions	*new_dimensions(int width, int length);
 t_map_data		*new_map_data(t_pixel **pixels, t_dimensions **dimensions);
 t_map_data		*parse_map(int fd);
-int				get_next_row(t_pixel *pixel);
-void			put_pixel(t_img_data **img, int x, int y, int color);
-void			draw_vector(t_mlx **mlx, t_pixel *vector);
+//void			put_pixel(t_img_data **img, int x, int y, int color);
+//void			draw_vector(t_mlx **mlx, t_pixel *vector);
+void			calculate_transformation(t_map_data **map);
+void			draw_coord(t_mlx **mlx, t_coord **coords, int row, int column);
 
 // FILE
 int				get_fd(char *filename);

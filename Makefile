@@ -6,14 +6,14 @@
 #    By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 17:25:35 by meskelin          #+#    #+#              #
-#    Updated: 2023/05/05 11:59:51 by meskelin         ###   ########.fr        #
+#    Updated: 2023/05/18 17:43:18 by meskelin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 LIBFT_PATH = ./libft
 
-BUILD_FLAGS = -Wall -Wextra -Werror
+BUILD_FLAGS = -Wall -Wextra -Werror # -fsanitize=address,undefined -g
 
 COMMON_SRC = exit \
 			file \
@@ -25,7 +25,8 @@ MAP_SRC = pixel \
 		map_parse \
 		img \
 		mlx_win \
-		draw
+		draw \
+		transformation
 
 LIST_SRC = lstnew \
 		lstlast \

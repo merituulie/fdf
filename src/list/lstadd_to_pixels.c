@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-#include <stdio.h>
 
 t_pixel	*lstadd_to_pixels(t_pixel **pixels, int x, int y, int z)
 {

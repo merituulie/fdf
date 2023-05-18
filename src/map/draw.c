@@ -6,37 +6,32 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 15:20:07 by meskelin          #+#    #+#             */
-/*   Updated: 2023/05/08 12:32:11 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:56:40 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void	put_pixel(t_img_data **img, int x, int y, int color)
+void	put_pixel(t_img_data **img, double x, double y, int color)
 {
 	char	*dst;
 
-	dst = (*img)->addr + (y * (*img)->line_length + x
+	dst = (*img)->addr + ((int)y * (*img)->line_length + (int)x
 			* ((*img)->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 
-void	draw_vector(t_mlx **mlx, t_pixel *vector)
+void	draw_coord(t_mlx **mlx, t_coord **coords, int row, int column)
 {
-	int	x_coord;
-	int	y_coord;
+	// draw the coord itself
+	put_pixel(&(*mlx)->img, coords[row][column].x, coords[row][column].y, COLOR);
+	if (column < (*mlx)->map->dimensions->width)
+	{
+		// draw to the next x coordinate
 
-	x_coord = vector->x;
-	while (vector->x <= vector->next->x)
-	{
-		put_pixel(&(*mlx)->img, vector->x, vector->y, 0x00FF0000);
-		vector->x++;
 	}
-	vector->x = x_coord;
-	y_coord = get_next_row(vector);
-	while (vector->y <= y_coord)
+	if (row < (*mlx)->map->dimensions->height)
 	{
-		put_pixel(&(*mlx)->img, vector->x, vector->y, 0x00FF0000);
-		vector->y++;
+		// draw to the next y coordinate
 	}
 }
