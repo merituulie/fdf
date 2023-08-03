@@ -6,7 +6,7 @@
 /*   By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:07:21 by meskelin          #+#    #+#             */
-/*   Updated: 2023/04/07 15:36:44 by meskelin         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:42:05 by meskelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 30
 
+int		ft_abs(int value);
+double	ft_lerp(int left, int right);
 int		ft_findchr(char *str, char c);
 char	*ft_strjoin_free(char *cache, char *buffer);
 char	*ft_init_str(void);

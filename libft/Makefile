@@ -6,13 +6,15 @@
 #    By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 16:13:53 by meskelin          #+#    #+#              #
-#    Updated: 2023/04/07 15:37:03 by meskelin         ###   ########.fr        #
+#    Updated: 2023/05/22 16:19:07 by meskelin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 SRC_FILES = ft_isalpha \
+ft_abs \
+ft_lerp \
 ft_isdigit \
 ft_isascii \
 ft_isalnum \

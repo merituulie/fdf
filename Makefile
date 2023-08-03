@@ -6,14 +6,14 @@
 #    By: meskelin <meskelin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 17:25:35 by meskelin          #+#    #+#              #
-#    Updated: 2023/05/18 17:43:18 by meskelin         ###   ########.fr        #
+#    Updated: 2023/05/26 13:30:36 by meskelin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 LIBFT_PATH = ./libft
 
-BUILD_FLAGS = -Wall -Wextra -Werror # -fsanitize=address,undefined -g
+BUILD_FLAGS = -Wall -Wextra -Werror # -fsanitize=address,undefined -g # -D ALTITUDE=1
 
 COMMON_SRC = exit \
 			file \
@@ -22,11 +22,13 @@ COMMON_SRC = exit \
 MAP_SRC = pixel \
 		dimension \
 		map \
-		map_parse \
+		mapparser \
 		img \
 		mlx_win \
-		draw \
 		transformation
+
+DRAW_SRC = draw \
+		bresenham \
 
 LIST_SRC = lstnew \
 		lstlast \
@@ -43,6 +45,8 @@ LISTSRCPRE = $(addprefix ./src/list/, $(LIST_SRC))
 LISTSRCSUFF = $(addsuffix .c, $(LISTSRCPRE))
 MAPSRCPRE = $(addprefix ./src/map/, $(MAP_SRC))
 MAPSRCSUFF = $(addsuffix .c, $(MAPSRCPRE))
+DRAWSRCPRE = $(addprefix ./src/draw/, $(DRAW_SRC))
+DRAWSRCSUFF = $(addsuffix .c, $(DRAWSRCPRE))
 SRCPRE = $(addprefix ./src/, $(SRC))
 SRCSUFF = $(addsuffix .c, $(SRCPRE))
 
@@ -51,7 +55,7 @@ all: $(NAME)
 
 $(NAME):
 	make -C $(LIBFT_PATH)
-	cc $(BUILD_FLAGS) main.c $(LISTSRCSUFF) $(COMMONSRCSUFF) $(MAPSRCSUFF) $(SRCSUFF) -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME)
+	cc $(BUILD_FLAGS) main.c $(LISTSRCSUFF) $(COMMONSRCSUFF) $(MAPSRCSUFF) $(DRAWSRCSUFF) $(SRCSUFF) -lmlx -Llibft -lft -framework OpenGL -framework AppKit -o $(NAME)
 
 .PHONY: clean
 clean:
@@ -65,4 +69,3 @@ fclean: clean
 
 .PHONY: re
 re: fclean all
-

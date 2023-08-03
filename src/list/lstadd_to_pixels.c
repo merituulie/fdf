@@ -17,6 +17,8 @@ t_pixel	*lstadd_to_pixels(t_pixel **pixels, int x, int y, int z)
 	t_pixel	*new;
 
 	new = lstnew(x, y, z);
+	if (!new)
+		exit_failure();
 	if (!*pixels)
 		pixels = &new;
 	else
